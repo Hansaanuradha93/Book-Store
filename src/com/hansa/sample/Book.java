@@ -2,7 +2,10 @@ package com.hansa.sample;
 
 import java.io.Serializable;
 
+// This class models books
 public class Book implements Serializable {
+
+    // Properties
     private String isbn;
     private String desc;
     private String price;

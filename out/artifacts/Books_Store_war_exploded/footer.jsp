@@ -13,6 +13,7 @@
 </head>
 <body>
     <%
+        // Lets create a Date object to get the date
         Date date = new Date();
     %>
     <h2>Status On <%=date.toString()%></h2>
