@@ -35,36 +35,38 @@
   </head>
   <body>
   <%@ include file="header.jsp" %>
+  <form action="DeleteBookServlet" method="POST" >
+    <table style="width:100%">
+      <tr>
+        <th>ISBN No</th>
+        <th>Short Desk</th>
+        <th>Price</th>
+        <th>Delete</th>
+      </tr>
 
-  <table style="width:100%">
-    <tr>
-      <th>ISBN No</th>
-      <th>Short Desk</th>
-      <th>Price</th>
-      <th>Delete</th>
-    </tr>
-
-    <%
+      <%
 
 
-      ArrayList<Book> books = (ArrayList<Book>) session.getAttribute("bookList");
+        ArrayList<Book> books = (ArrayList<Book>) session.getAttribute("bookList");
 
-      // Let go through each book
-      if(books != null) {
-        for(Book book: books) {
-    %>
-    <tr>
-      <th><%=book.getIsbn()%></th>
-      <th><%=book.getDesc()%></th>
-      <th><%=book.getPrice()%></th>
-      <th>Delete</th>
-    </tr>
-    <%
+        // Let go through each book
+        if(books != null) {
+          for(int i = 0; i < books.size(); i++) {
+      %>
+      <tr>
+        <th><%=books.get(i).getIsbn()%></th>
+        <th><%=books.get(i).getDesc()%></th>
+        <th><%=books.get(i).getPrice()%></th>
+        <th>Delete<input type="checkbox" name="<%=i%>"></th>
+      </tr>
+      <%
+          }
         }
-      }
-    %>
-  </table>
-  <input type="submit" value="Delete Book(s)">
+      %>
+    </table>
+    <input type="submit" value="Delete Book(s)">
+  </form>
+
   <hr>
   <h2>Add a Book</h2>
   <form action="BookServlet" method="POST">

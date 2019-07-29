@@ -12,4 +12,13 @@
         <servlet-name>BookServlet</servlet-name>
         <url-pattern>/BookServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteBookServlet</servlet-name>
+        <servlet-class>com.hansa.sample.DeleteBookServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteBookServlet</servlet-name>
+        <url-pattern>/DeleteBookServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
