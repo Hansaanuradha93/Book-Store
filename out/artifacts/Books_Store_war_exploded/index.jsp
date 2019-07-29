@@ -45,26 +45,9 @@
     </tr>
 
     <%
-      // Lets create a array list of books to store the books
-      ArrayList<Book> books = new ArrayList<Book>();
 
-      // Lets create index variable to get the index
-      int index = 1;
 
-      // Lets try to retrieve the index from a session
-      if(session.getAttribute("id") != null) {
-        index = Integer.parseInt((String)session.getAttribute("id"));
-      }
-
-      // Lets go through every index to get all the books
-      for(int i = 1; i <= index; i++) {
-        Book newBook = (Book) session.getAttribute("" + i);
-
-        if(newBook != null) {
-          // Lets add each retrieved book from the session to the books array list
-          books.add(newBook);
-        }
-      }
+      ArrayList<Book> books = (ArrayList<Book>) session.getAttribute("bookList");
 
       // Let go through each book
       if(books != null) {
