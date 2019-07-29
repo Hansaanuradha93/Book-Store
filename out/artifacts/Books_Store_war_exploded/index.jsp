@@ -45,8 +45,7 @@
       </tr>
 
       <%
-
-
+        // Lets retrieve the books from a session
         ArrayList<Book> books = (ArrayList<Book>) session.getAttribute("bookList");
 
         // Let go through each book
