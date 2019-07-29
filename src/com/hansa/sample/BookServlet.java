@@ -18,20 +18,23 @@ public class BookServlet extends HttpServlet {
         String desc = request.getParameter("shortdesc");
         String price = request.getParameter("price");
 
-        // Lets create a session
-        HttpSession session = request.getSession(true);
+        if (!isbn.isEmpty() && !desc.isEmpty() && !price.isEmpty()) {
+            // Lets create a session
+            HttpSession session = request.getSession(true);
 
-        ArrayList<Book> books;
+            ArrayList<Book> books;
 
-        if(session.getAttribute("bookList") != null) {
-            books = (ArrayList<Book>) session.getAttribute("bookList");
-        } else {
-            books = new ArrayList<Book>();
+            if(session.getAttribute("bookList") != null) {
+                books = (ArrayList<Book>) session.getAttribute("bookList");
+            } else {
+                books = new ArrayList<Book>();
+            }
+            Book newBook = new Book(isbn, desc, price);
+            books.add(newBook);
+
+            session.setAttribute("bookList", books);
+
         }
-        Book newBook = new Book(isbn, desc, price);
-        books.add(newBook);
-
-        session.setAttribute("bookList", books);
 
         // Lets redirect to index.jsp
         request.getRequestDispatcher("index.jsp").forward(request, response);
