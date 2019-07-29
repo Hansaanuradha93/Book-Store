@@ -20,7 +20,7 @@
         text-align: left;
       }
       input {
-        background-color: #4CAF50; /* Green */
+        background-color: #4CAF53; /* Green */
         border: none;
         color: white;
         margin-top: 8px;
@@ -35,6 +35,7 @@
   </head>
   <body>
   <%@ include file="header.jsp" %>
+  <h2>Library Book List</h2>
   <form action="DeleteBookServlet" method="POST" >
     <table style="width:100%">
       <tr>
@@ -56,7 +57,7 @@
         <th><%=books.get(i).getIsbn()%></th>
         <th><%=books.get(i).getDesc()%></th>
         <th><%=books.get(i).getPrice()%></th>
-        <th>Delete<input type="checkbox" name="<%=i%>"></th>
+        <th><input type="checkbox" name="<%=i%>"></th>
       </tr>
       <%
           }
@@ -72,7 +73,7 @@
     <input type="text" placeholder="ISBN Number" name="isbn" ><br>
     <input type="text" placeholder="Short Description" name="shortdesc"><br>
     <input type="text" placeholder="Price" name="price"><br>
-    <input type="submit" value="OK">
+    <input type="submit" value="Add Book">
   </form>
   <hr>
   <%@ include file="footer.jsp" %>
